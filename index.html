@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="normalised.css">
     <link rel="stylesheet" href="estils.css">
 </head>
 <body>
@@ -29,7 +30,7 @@
             // alert(text_minuscula);
 
             if(text.split(" ").length <2){  //si la llargada del text es menor a 2 paraules
-                error.textContent= "Text massa curt, ha de contenir més de 2 paraules";
+                error.textContent= "Text massa curt, ha de contenir 2 o més paraules";
                 return;
             }
 
@@ -42,7 +43,7 @@
                 error.textContent="Sol pots escriure lletres";
                 return;
             }else{
-                return alert(text);
+                return alert("compleix amb totes les condicions: " + text);
             }
             
         }
