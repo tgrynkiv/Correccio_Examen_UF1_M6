@@ -48,11 +48,31 @@
             if(!(/^[a-zA-Z]+$/).test(caracter)){ //comprova si "caracter" es una lletra, jo ho comprovo amb /^[a-zA-Z]$/ (es una expresio regular)
                 error.textContent="Sol pots escriure lletres";
                 return;
-            }else{
-                // return alert("compleix amb totes les condicions: " + text); S'ha dintentar evitar els alerts, aquesta opcio la vaig fer servir a l'examen
-                return document.getElementById("resultat").innerHTML = "Es correcte: " + text;
             }
-            
+            // else{
+            //     // return alert("compleix amb totes les condicions: " + text); S'ha d'intentar evitar els alerts, aquesta opcio la vaig fer servir a l'examen
+            //     // return document.getElementById("resultat").innerHTML = "Es correcte: " + text;
+            //     let trobat = true;
+            // }
+
+            var paraules = text.split(" ");     // per separar paraules
+            let trobat = false;                 // variable per dir si s'ha trobat caracter o no
+
+            paraules.forEach(function (paraula) {
+                if (paraula.includes(caracter)) {                   // .includes diu si la paraula conté el caracter
+                
+                    let li = document.createElement("li");
+                    li.innerHTML = "<strong>" +paraula + "</strong>";
+                    resultat.appendChild(li);
+                    trobat = true;
+                }
+            });
+
+            if (!trobat) {
+            error.textContent = "No s'ha trobat cap paraula amb el caràcter";
+                                
+            }
+
         }
     </script>
 
