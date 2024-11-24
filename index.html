@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Correcció examen</title>
+    <title>Correcció Examen</title>
 
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -49,7 +49,8 @@
                 error.textContent="Sol pots escriure lletres";
                 return;
             }else{
-                return alert("compleix amb totes les condicions: " + text);
+                // return alert("compleix amb totes les condicions: " + text); S'ha dintentar evitar els alerts, aquesta opcio la vaig fer servir a l'examen
+                return document.getElementById("resultat").innerHTML = "Es correcte: " + text;
             }
             
         }
