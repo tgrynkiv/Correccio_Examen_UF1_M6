@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Correcció Examen</title>
+    <title>Correcció Examen Taras Grynkiv</title>
 
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -63,7 +63,7 @@
                 if (posicions.length > 0) {                 
                 
                     let li = document.createElement("li");
-                    li.innerHTML = "<strong>" +paraula + "</strong> posicio/ns de " + caracter + " és " + posicions.join(" / ");
+                    li.innerHTML = "<strong>" +paraula + ":</strong> posicio/ns de " + caracter + " és " + posicions.join(" / ");
                     resultat.appendChild(li);
                     trobat = true; 
                 }
@@ -77,10 +77,10 @@
         }
     </script>
 
-    <fieldset>
+    <fieldset id="fieldset">
         <legend>Problema</legend>
         <label>Text:</label> 
-        <textarea type="textarea" id="text1" placeholder="Ara mateix enfilo aquesta agulla. Amb ..."></textarea><br>
+        <textarea id="text1" placeholder="Ara mateix enfilo aquesta agulla. Amb ..."></textarea><br>
         <label>Caràcter:</label>
         <input type="text" id="caracter"><br>
         <button type="button" value="INICIAR" onclick="buscarParaules()">INICIAR</button>
