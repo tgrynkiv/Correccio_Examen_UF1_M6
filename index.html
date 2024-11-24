@@ -29,18 +29,13 @@
 
             // alert(text1);         // per depurar
             // alert(caracter);      // per depurar
-            
-            // var text_minuscula;
-            // text.toLowerCase(text_minuscula);
-
-            // alert(text_minuscula);
 
             if(text.split(" ").length <2){  //si la llargada del text es menor a 2 paraules
                 error.textContent= "Text massa curt, ha de contenir 2 o més paraules";
                 return;
             }
 
-            if(caracter.length !== 1){ // comprova si el caracter es un 
+            if(caracter.length !== 1){ // comprova si la llargada de "caracter" es diferent de 1 
                 error.textContent="Sol pots escriure un caracter";
                 return;
             }
@@ -49,22 +44,28 @@
                 error.textContent="Sol pots escriure lletres";
                 return;
             }
-            // else{
-            //     // return alert("compleix amb totes les condicions: " + text); S'ha d'intentar evitar els alerts, aquesta opcio la vaig fer servir a l'examen
-            //     // return document.getElementById("resultat").innerHTML = "Es correcte: " + text;
-            //     let trobat = true;
-            // }
 
             var paraules = text.split(" ");     // per separar paraules
             let trobat = false;                 // variable per dir si s'ha trobat caracter o no
 
             paraules.forEach(function (paraula) {
-                if (paraula.includes(caracter)) {                   // .includes diu si la paraula conté el caracter
+
+                let posicions = [];
+                
+                //bucle que recorre cada caracter de cada paraula de "text1"
+                for (let i = 0; i < paraula.length; i++) {
+                    if (paraula[i] === caracter) {
+                    posicions.push(i + 1); //si coinsideixen els caracters, afegim la posicio a l'array i li sumem 1, perque la primera posicio sigui 1 i no 0
+                    }
+                }
+
+                // si hi ha coincidencia, mostrarem el missatge 
+                if (posicions.length > 0) {                 
                 
                     let li = document.createElement("li");
-                    li.innerHTML = "<strong>" +paraula + "</strong>";
+                    li.innerHTML = "<strong>" +paraula + "</strong> posicio/ns de " + caracter + " és " + posicions.join(" / ");
                     resultat.appendChild(li);
-                    trobat = true;
+                    trobat = true; 
                 }
             });
 
